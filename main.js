@@ -5,6 +5,10 @@ $(function() {
 
     $('#save').click(function() {
         localStorage.setItem('memo', $('#memo').val());
-        console.log(localStorage.getItem('memo'));
     });
+
+    $('#clear').click(function() {
+        $('#memo').val('');
+        localStorage.removeItem('memo');
+    })
 })
