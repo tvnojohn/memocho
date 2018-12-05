@@ -3,12 +3,13 @@ $(function() {
         $('#memo').val(localStorage.getItem('memo'));
     }
 
-    $('#save').click(function() {
-        localStorage.setItem('memo', $('#memo').val());
-    });
-
     $('#clear').click(function() {
         $('#memo').val('');
         localStorage.removeItem('memo');
-    })
-})
+    });
+
+    (function autoSave() {
+        localStorage.setItem('memo', $('#memo').val());
+        setTimeout(autoSave, 1000);
+    })();
+});
